@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   },
 
   srcDir: 'src/',
-  ssr: true,
+  serverDir: 'server',
+  ssr: false,
   compatibilityDate: '2024-07-04',
 })
