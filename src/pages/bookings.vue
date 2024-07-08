@@ -1,5 +1,5 @@
 <template>
   <div>
-    HOME
+    BOOKINGS
   </div>
 </template>
