@@ -77,100 +77,100 @@
             "name": "Tropical Paradise",
             "departureDate": "2023-07-01T00:00:00.000Z",
             "returnDate": "2023-07-15T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/L-2p8fapOA8",
+            "pictureSource": "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f",
             "tourDescription": "Experience the ultimate getaway in the heart of the tropics.",
             "price": 1500,
-            "averageRating": 4.5
+            "averageRating": 5
         },
         {
             "id": 2,
             "name": "European Adventure",
             "departureDate": "2023-08-05T00:00:00.000Z",
             "returnDate": "2023-08-20T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/OCrPJce6GPk",
+            "pictureSource": "https://images.unsplash.com/photo-1475650522725-015d35677789",
             "tourDescription": "Explore the rich history and vibrant cultures of Europe.",
             "price": 2500,
-            "averageRating": 4.7
+            "averageRating": 3
         },
         {
             "id": 3,
             "name": "Safari Expedition",
             "departureDate": "2023-09-10T00:00:00.000Z",
             "returnDate": "2023-09-24T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/jHQ3zPf2z0o",
-            "tourDescription": "Get up close with Africa\"s wildlife in their natural habitat.",
+            "pictureSource": "https://plus.unsplash.com/premium_photo-1661870399335-f5efe423b78d",
+            "tourDescription": "Get up close with Africa's wildlife in their natural habitat.",
             "price": 3000,
-            "averageRating": 4.8
+            "averageRating": 2
         },
         {
             "id": 4,
             "name": "Mountain Retreat",
             "departureDate": "2023-10-15T00:00:00.000Z",
             "returnDate": "2023-10-29T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/8RmNvSimHs0",
+            "pictureSource": "https://images.unsplash.com/photo-1719035589510-067e78972998",
             "tourDescription": "Escape to the serene and breathtaking mountains for a peaceful retreat.",
             "price": 1200,
-            "averageRating": 4.6
+            "averageRating": 3
         },
         {
             "id": 5,
             "name": "Arctic Adventure",
             "departureDate": "2023-11-01T00:00:00.000Z",
             "returnDate": "2023-11-15T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/2_3c4dIFYFU",
+            "pictureSource": "https://images.unsplash.com/photo-1647509147251-55ab9bde4fc5",
             "tourDescription": "Discover the stunning landscapes and unique wildlife of the Arctic.",
             "price": 4000,
-            "averageRating": 4.9
+            "averageRating": 5
         },
         {
             "id": 6,
             "name": "Cultural Japan",
             "departureDate": "2023-12-05T00:00:00.000Z",
             "returnDate": "2023-12-19T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/WLxQvbMyfas",
+            "pictureSource": "https://images.unsplash.com/photo-1685368035981-8ccb8ecbc42f",
             "tourDescription": "Immerse yourself in the rich culture and tradition of Japan.",
             "price": 2700,
-            "averageRating": 4.7
+            "averageRating": 4
         },
         {
             "id": 7,
             "name": "Australian Outback",
             "departureDate": "2024-01-10T00:00:00.000Z",
             "returnDate": "2024-01-24T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/3PeSjpLVtLg",
+            "pictureSource": "https://plus.unsplash.com/premium_photo-1694475730447-8cb218cf5bc1",
             "tourDescription": "Explore the vast landscapes and unique wildlife of the Australian Outback.",
             "price": 3200,
-            "averageRating": 4.5
+            "averageRating": 3
         },
         {
             "id": 8,
             "name": "New Zealand Adventure",
             "departureDate": "2024-02-15T00:00:00.000Z",
             "returnDate": "2024-03-01T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/2JvL3zA7sUU",
+            "pictureSource": "https://images.unsplash.com/photo-1536744052983-bcf122437f48",
             "tourDescription": "Experience the adventure of a lifetime in the stunning landscapes of New Zealand.",
             "price": 3500,
-            "averageRating": 4.8
+            "averageRating": 1
         },
         {
             "id": 9,
             "name": "Caribbean Cruise",
             "departureDate": "2024-03-20T00:00:00.000Z",
             "returnDate": "2024-04-03T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/nMffL1zjbw4",
+            "pictureSource": "https://images.unsplash.com/photo-1672546562044-5d3c2860c5c7",
             "tourDescription": "Sail through the crystal-clear waters of the Caribbean and visit tropical islands.",
             "price": 2200,
-            "averageRating": 4.6
+            "averageRating": 4
         },
         {
             "id": 10,
             "name": "Ancient Egypt",
             "departureDate": "2024-04-25T00:00:00.000Z",
             "returnDate": "2024-05-09T00:00:00.000Z",
-            "pictureSource": "https://unsplash.com/photos/CMKMDsnFA8Q",
+            "pictureSource": "https://plus.unsplash.com/premium_photo-1664303467567-17891a27998a",
             "tourDescription": "Discover the mysteries of the ancient pyramids and the rich history of Egypt.",
             "price": 1800,
-            "averageRating": 4.4
+            "averageRating": 4
         }
     ],
     "customers": [
