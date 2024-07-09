@@ -1,0 +1,258 @@
+{
+    "bookings": [
+        {
+            "id": 1,
+            "paymentType": "creditTransfer",
+            "travelId": 2,
+            "customerId": 1,
+            "notes": "VIP customer, ensure top service."
+        },
+        {
+            "id": 2,
+            "paymentType": "payPal",
+            "travelId": 3,
+            "customerId": 2,
+            "notes": "Requires wheelchair access."
+        },
+        {
+            "id": 3,
+            "paymentType": "revolut",
+            "travelId": 4,
+            "customerId": 3,
+            "notes": "Interested in extra excursions."
+        },
+        {
+            "id": 4,
+            "paymentType": "creditTransfer",
+            "travelId": 5,
+            "customerId": 4,
+            "notes": "Prefers vegetarian meals."
+        },
+        {
+            "id": 5,
+            "paymentType": "payPal",
+            "travelId": 6,
+            "customerId": 5,
+            "notes": "Celebrating honeymoon, arrange a surprise."
+        },
+        {
+            "id": 6,
+            "paymentType": "revolut",
+            "travelId": 7,
+            "customerId": 6,
+            "notes": "First time abroad."
+        },
+        {
+            "id": 7,
+            "paymentType": "creditTransfer",
+            "travelId": 8,
+            "customerId": 7,
+            "notes": "Frequent flyer with us, offer loyalty discount."
+        },
+        {
+            "id": 8,
+            "paymentType": "payPal",
+            "travelId": 9,
+            "customerId": 8,
+            "notes": "Allergic to shellfish."
+        },
+        {
+            "id": 9,
+            "paymentType": "revolut",
+            "travelId": 10,
+            "customerId": 9,
+            "notes": "Requesting extra leg room."
+        },
+        {
+            "id": 10,
+            "paymentType": "creditTransfer",
+            "travelId": 1,
+            "customerId": 10,
+            "notes": "Bringing a pet, needs pet-friendly accommodation."
+        }
+    ],
+    "travels": [
+        {
+            "id": 1,
+            "name": "Tropical Paradise",
+            "departureDate": "2023-07-01T00:00:00.000Z",
+            "returnDate": "2023-07-15T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/L-2p8fapOA8",
+            "tourDescription": "Experience the ultimate getaway in the heart of the tropics.",
+            "price": 1500,
+            "averageRating": 4.5
+        },
+        {
+            "id": 2,
+            "name": "European Adventure",
+            "departureDate": "2023-08-05T00:00:00.000Z",
+            "returnDate": "2023-08-20T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/OCrPJce6GPk",
+            "tourDescription": "Explore the rich history and vibrant cultures of Europe.",
+            "price": 2500,
+            "averageRating": 4.7
+        },
+        {
+            "id": 3,
+            "name": "Safari Expedition",
+            "departureDate": "2023-09-10T00:00:00.000Z",
+            "returnDate": "2023-09-24T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/jHQ3zPf2z0o",
+            "tourDescription": "Get up close with Africa\"s wildlife in their natural habitat.",
+            "price": 3000,
+            "averageRating": 4.8
+        },
+        {
+            "id": 4,
+            "name": "Mountain Retreat",
+            "departureDate": "2023-10-15T00:00:00.000Z",
+            "returnDate": "2023-10-29T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/8RmNvSimHs0",
+            "tourDescription": "Escape to the serene and breathtaking mountains for a peaceful retreat.",
+            "price": 1200,
+            "averageRating": 4.6
+        },
+        {
+            "id": 5,
+            "name": "Arctic Adventure",
+            "departureDate": "2023-11-01T00:00:00.000Z",
+            "returnDate": "2023-11-15T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/2_3c4dIFYFU",
+            "tourDescription": "Discover the stunning landscapes and unique wildlife of the Arctic.",
+            "price": 4000,
+            "averageRating": 4.9
+        },
+        {
+            "id": 6,
+            "name": "Cultural Japan",
+            "departureDate": "2023-12-05T00:00:00.000Z",
+            "returnDate": "2023-12-19T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/WLxQvbMyfas",
+            "tourDescription": "Immerse yourself in the rich culture and tradition of Japan.",
+            "price": 2700,
+            "averageRating": 4.7
+        },
+        {
+            "id": 7,
+            "name": "Australian Outback",
+            "departureDate": "2024-01-10T00:00:00.000Z",
+            "returnDate": "2024-01-24T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/3PeSjpLVtLg",
+            "tourDescription": "Explore the vast landscapes and unique wildlife of the Australian Outback.",
+            "price": 3200,
+            "averageRating": 4.5
+        },
+        {
+            "id": 8,
+            "name": "New Zealand Adventure",
+            "departureDate": "2024-02-15T00:00:00.000Z",
+            "returnDate": "2024-03-01T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/2JvL3zA7sUU",
+            "tourDescription": "Experience the adventure of a lifetime in the stunning landscapes of New Zealand.",
+            "price": 3500,
+            "averageRating": 4.8
+        },
+        {
+            "id": 9,
+            "name": "Caribbean Cruise",
+            "departureDate": "2024-03-20T00:00:00.000Z",
+            "returnDate": "2024-04-03T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/nMffL1zjbw4",
+            "tourDescription": "Sail through the crystal-clear waters of the Caribbean and visit tropical islands.",
+            "price": 2200,
+            "averageRating": 4.6
+        },
+        {
+            "id": 10,
+            "name": "Ancient Egypt",
+            "departureDate": "2024-04-25T00:00:00.000Z",
+            "returnDate": "2024-05-09T00:00:00.000Z",
+            "pictureSource": "https://unsplash.com/photos/CMKMDsnFA8Q",
+            "tourDescription": "Discover the mysteries of the ancient pyramids and the rich history of Egypt.",
+            "price": 1800,
+            "averageRating": 4.4
+        }
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "name": "Alex Johnson",
+            "email": "alex.johnson@example.com",
+            "phone": "555-0101",
+            "age": 29,
+            "gender": "male"
+        },
+        {
+            "id": 2,
+            "name": "Maria Garcia",
+            "email": "maria.garcia@example.com",
+            "phone": "555-0102",
+            "age": 34,
+            "gender": "female"
+        },
+        {
+            "id": 3,
+            "name": "Sam Chris",
+            "email": "sam.chris@example.com",
+            "phone": "555-0103",
+            "age": 40,
+            "gender": "other"
+        },
+        {
+            "id": 3,
+            "name": "Sam Chris",
+            "email": "sam.chris@example.com",
+            "phone": "555-0103",
+            "age": 40,
+            "gender": "other"
+        },
+        {
+            "id": 4,
+            "name": "Linda Smith",
+            "email": "linda.smith@example.com",
+            "phone": "555-0104",
+            "age": 28,
+            "gender": "female"
+        },
+        {
+            "id": 5,
+            "name": "James Lee",
+            "email": "james.lee@example.com",
+            "phone": "555-0105",
+            "age": 35,
+            "gender": "male"
+        },
+        {
+            "id": 6,
+            "name": "Emily Davis",
+            "email": "emily.davis@example.com",
+            "phone": "555-0106",
+            "age": 22,
+            "gender": "female"
+        },
+        {
+            "id": 7,
+            "name": "Kevin Brown",
+            "email": "kevin.brown@example.com",
+            "phone": "555-0107",
+            "age": 31,
+            "gender": "male"
+        },
+        {
+            "id": 8,
+            "name": "Sophia Wilson",
+            "email": "sophia.wilson@example.com",
+            "phone": "555-0108",
+            "age": 26,
+            "gender": "female"
+        },
+        {
+            "id": 9,
+            "name": "Daniel Martinez",
+            "email": "daniel.martinez@example.com",
+            "phone": "555-0109",
+            "age": 38,
+            "gender": "male"
+        }
+    ]
+}
