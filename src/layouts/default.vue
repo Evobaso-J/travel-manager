@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-svh bg-slate-100 overflow-scroll">
     <NavigationSidebar
       :nav-items="navItems"
     />

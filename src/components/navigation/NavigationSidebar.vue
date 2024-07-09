@@ -1,6 +1,6 @@
 <template>
   <button
-    class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+    class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
     @click="toggleSidebar"
   >
     <span class="sr-only">Open sidebar</span>
@@ -26,7 +26,7 @@
     aria-label="Sidebar"
   >
     <div
-      class="h-full px-3 py-4 overflow-y-auto bg-gray-50"
+      class="h-full px-3 py-4 overflow-y-auto bg-white"
     >
       <ul class="space-y-2 font-medium">
         <h1
