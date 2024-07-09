@@ -19,14 +19,26 @@ const navItems = [
   {
     text: 'Dashboard',
     to: '/',
+    prependIcon: {
+      prefix: 'fas',
+      iconName: 'chart-line',
+    },
   },
   {
     text: 'Travels',
     to: '/travels',
+    prependIcon: {
+      prefix: 'fas',
+      iconName: 'compass',
+    },
   },
   {
     text: 'Bookings',
     to: '/bookings',
+    prependIcon: {
+      prefix: 'fas',
+      iconName: 'list-check',
+    },
   },
 ] as const satisfies NavigationLinkProps[]
 </script>

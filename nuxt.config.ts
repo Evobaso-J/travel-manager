@@ -6,7 +6,13 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/tailwindcss',
+  ],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
 
   eslint: {
     config: {
