@@ -5,5 +5,7 @@
   },
   "eslint.useFlatConfig": true,
   "tailwind-fold.autoFold": true,
-  "tailwind-fold.unfoldIfLineSelected": true
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwind-fold.foldLengthThreshold": 30,
+  "tailwind-fold.foldStyle": "QUOTES"
 }
