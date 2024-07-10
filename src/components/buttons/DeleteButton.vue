@@ -1,5 +1,5 @@
 <template>
-  <button>
+  <button :disabled="loading">
     <FontAwesomeIcon
       v-if="!loading"
       :icon="{

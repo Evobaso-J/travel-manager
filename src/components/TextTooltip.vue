@@ -14,6 +14,7 @@
       {{ text }}
     </div>
     <div
+      class="cursor-help"
       @mouseenter="toggleTooltip"
       @mouseleave="toggleTooltip"
     >
