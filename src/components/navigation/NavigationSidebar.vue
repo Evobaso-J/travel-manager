@@ -14,13 +14,13 @@
   </button>
 
   <div
-    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity sm:hidden"
+    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity sm:hidden z-50"
     :class="{ hidden: !isOpen }"
     aria-hidden="true"
     @click="toggleSidebar"
   />
   <aside
-    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0
+    class="fixed top-0 left-0 z-50 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0
     shadow-md"
     :class="{ 'translate-x-0': isOpen, '-translate-x-full': !isOpen }"
     aria-label="Sidebar"
