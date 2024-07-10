@@ -28,12 +28,29 @@
     <div
       class="h-full px-3 py-4 overflow-y-auto bg-white"
     >
-      <ul class="space-y-2 font-medium">
+      <NuxtLink
+        to="/"
+        class="p-2 mb-2 flex items-center cursor-pointer"
+      >
+        <NuxtImg
+          src="/images/logo.png"
+          alt="Logo"
+          width="40"
+          height="40"
+          class="mr-4"
+        />
         <h1
+          class="text-2xl font-semibold text-gray-800"
+        >
+          Travlog
+        </h1>
+      </NuxtLink>
+      <ul class="space-y-2 font-medium">
+        <h3
           class="text-sm"
         >
           Menu
-        </h1>
+        </h3>
 
         <template
           v-for="({ text, to, prependIcon }, index) in navItems"
