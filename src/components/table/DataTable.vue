@@ -72,13 +72,14 @@ defineSlots<DataTableSlots<TDataTableItem>>()
     loading?: boolean
     error?: boolean
     headersMapper?: (itemText: string) => string
+    hiddenColumns?: (keyof T)[]
   }
 const props = withDefaults(defineProps<DataTableProps<TDataTableItem>>(), {
   headersMapper: (itemText: string) => toNaturalCase(itemText),
 })
 
 const headers = computed<(keyof TDataTableItem)[]>(() => Object.keys(props.items[0] ?? {})
-  .filter(key => key !== 'id') as (keyof TDataTableItem)[])
+  .filter(key => !props.hiddenColumns?.includes(key)) as (keyof TDataTableItem)[])
 const parsedHeaders = computed<string[]>(() => headers.value
   .map(header => props.headersMapper(header.toString())))
 
