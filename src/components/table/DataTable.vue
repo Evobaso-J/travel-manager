@@ -42,7 +42,7 @@
                 :key="`${itemIndex}${header}`"
               >
                 <td
-                  class="px-6 py-4 whitespace-nowrap group-last:first:rounded-bl-lg group-last:last:rounded-br-lg"
+                  class="px-6 py-4 whitespace-nowrap group-last:first:rounded-bl-lg"
                 >
                   <slot
                     :name="`item.${String(header)}`"
@@ -55,7 +55,7 @@
               </template>
               <td
                 v-if="parsedHeaders.length > 0"
-                class="px-6 py-4 whitespace-nowrap group-last:first:rounded-br-lg sticky right-0 group-odd:bg-primary-50 group-even:bg-white group-hover:bg-primary-100"
+                class="px-6 py-4 whitespace-nowrap group-last:last:rounded-br-lg sticky right-0 group-odd:bg-primary-50 group-even:bg-white group-hover:bg-primary-100"
               >
                 <div class="flex justify-around items-center">
                   <DeleteButton

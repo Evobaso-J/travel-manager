@@ -15,3 +15,8 @@ export const mapPaymentTypeToString = (paymentType: PaymentType): string => {
   if (paymentType === 'revolut') return 'Revolut'
   throw new Error('Unsupported payment type')
 }
+
+export const sleep = (ms: number = 1000): Promise<void> => {
+  console.info('Simulating a delay of ' + ms + ' ms.')
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
