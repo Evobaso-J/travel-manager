@@ -6,14 +6,22 @@
     <div class="p-4 sm:ml-64">
       <slot />
     </div>
+    <NotificationSnackbar
+      v-for="(notification, index) in activeNotifications"
+      :key="index"
+      :notification="notification"
+    />
   </div>
 </template>
 
 <script setup lang='ts'>
 import type { NavigationLinkProps } from '~/components/navigation/NavigationLink.vue'
 import NavigationSidebar from '~/components/navigation/NavigationSidebar.vue'
+import NotificationSnackbar from '~/components/NotificationSnackbar.vue'
 
 defineComponent({ name: 'DefaultLayout' })
+
+const { activeNotifications } = useNotification()
 
 const navItems = [
   {
