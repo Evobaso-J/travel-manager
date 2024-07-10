@@ -1,60 +1,83 @@
 <template>
   <BaseCard>
-    <DataTableAltStatus
-      v-if="dataTableStatus !== 'idle'"
-      :status="dataTableStatus"
-    />
-    <table
-      v-else
-      class="min-w-full divide-y divide-gray-200"
-    >
-      <thead>
-        <tr class="rounded-t-lg">
-          <template
-            v-for="parsedHeader in parsedHeaders"
-            :key="parsedHeader"
-          >
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              {{ parsedHeader }}
-            </th>
-          </template>
-        </tr>
-      </thead>
-      <tbody>
-        <template
-          v-for="(item, itemIndex) in filteredItems"
-          :key="itemIndex"
-        >
-          <tr class="odd:bg-primary-50 hover:bg-primary-100 group">
+    <div class="overflow-scroll">
+      <DataTableAltStatus
+        v-if="dataTableStatus !== 'idle'"
+        :status="dataTableStatus"
+      />
+      <table
+        v-else
+        class="min-w-full divide-y divide-gray-200"
+      >
+        <thead>
+          <tr class="rounded-t-lg">
             <template
-              v-for="header in headers"
-              :key="`${itemIndex}${header}`"
+              v-for="parsedHeader in parsedHeaders"
+              :key="parsedHeader"
             >
-              <td
-                class="px-6 py-4 whitespace-nowrap group-last:first:rounded-bl-lg group-last:last:rounded-br-lg"
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                <slot
-                  :name="`item.${String(header)}`"
-                  :item="item"
-                  :index="itemIndex"
-                >
-                  {{ item[header] }}
-                </slot>
-              </td>
+                {{ parsedHeader }}
+              </th>
             </template>
+            <th
+              v-if="parsedHeaders.length > 0"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky right-0 bg-white"
+            >
+              <div>
+                Actions
+              </div>
+            </th>
           </tr>
-        </template>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <template
+            v-for="(item, itemIndex) in filteredItems"
+            :key="itemIndex"
+          >
+            <tr class="group odd:bg-primary-50 hover:bg-primary-100 group">
+              <template
+                v-for="header in headers"
+                :key="`${itemIndex}${header}`"
+              >
+                <td
+                  class="px-6 py-4 whitespace-nowrap group-last:first:rounded-bl-lg group-last:last:rounded-br-lg"
+                >
+                  <slot
+                    :name="`item.${String(header)}`"
+                    :item="item"
+                    :index="itemIndex"
+                  >
+                    {{ item[header] }}
+                  </slot>
+                </td>
+              </template>
+              <td
+                v-if="parsedHeaders.length > 0"
+                class="px-6 py-4 whitespace-nowrap group-last:first:rounded-br-lg sticky right-0 group-odd:bg-primary-50 group-even:bg-white group-hover:bg-primary-100"
+              >
+                <div class="flex justify-around items-center">
+                  <DeleteButton
+                    :id="item.id"
+                    :client="resourceClient"
+                  />
+                </div>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
   </BaseCard>
 </template>
 
-<script setup lang='ts' generic="TDataTableItem extends {[key: string]: any}">
+<script setup lang='ts' generic="TDataTableItem extends {[key: string]: any}, TInternal extends WithOptionalId, TResponse extends WithId, TRequest extends WithOptionalId">
 import DataTableAltStatus from '~/components/table/DataTableAltStatus.vue'
 import BaseCard from '~/components/BaseCard.vue'
 import { toNaturalCase } from '~/utils'
+import DeleteButton from '~/components/buttons/DeleteButton.vue'
+import type { ResourceClient, WithId, WithOptionalId } from '~/resources/types'
 
 export type DataTableStatus = 'loading' | 'error' | 'empty' | 'idle'
 export type DataTableFilters<T> = Partial<Record<keyof T, string | undefined>>
@@ -68,15 +91,16 @@ type DataTableSlots<T> = {
 
 defineSlots<DataTableSlots<TDataTableItem>>()
 
-  type DataTableProps<T extends object> = {
+  type DataTableProps<T extends object, I extends WithOptionalId, Res extends WithId, Req extends WithOptionalId> = {
     items: T[]
     loading?: boolean
     error?: boolean
     headersMapper?: (itemText: string) => string
     hiddenColumns?: (keyof T)[]
     filterBy?: DataTableFilters<TDataTableItem>
+    resourceClient: ResourceClient<I, Res, Req>
   }
-const props = withDefaults(defineProps<DataTableProps<TDataTableItem>>(), {
+const props = withDefaults(defineProps<DataTableProps<TDataTableItem, TInternal, TResponse, TRequest>>(), {
   headersMapper: (itemText: string) => toNaturalCase(itemText),
 })
 

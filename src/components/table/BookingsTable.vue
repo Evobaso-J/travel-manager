@@ -4,6 +4,7 @@
     :loading="status === 'pending'"
     :error="status === 'error'"
     :hidden-columns="['id']"
+    :resource-client="bookingsClient"
   >
     <template #[`item.customer`]="{ item }">
       <div class="flex flex-col gap-2">

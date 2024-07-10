@@ -12,6 +12,7 @@
       :error="status === 'error'"
       :hidden-columns="['id', 'pictureSource']"
       :filter-by="filters"
+      :resource-client="travelsClient"
     >
       <template #[`item.name`]="{ item }">
         <div class="flex gap-4 items-center">
