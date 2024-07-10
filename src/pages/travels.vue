@@ -1,10 +1,31 @@
 <template>
-  <div>
+  <div class="flex flex-col gap-3">
+    <TextInput
+      v-model="search"
+      :label="'Search'"
+      tw-class="max-w-xl"
+      :prepend-icon="{ prefix: 'fas', iconName: 'magnifying-glass' }"
+    />
     <DataTable
       :items="data ?? []"
       :loading="status === 'pending'"
       :error="status === 'error'"
+      :hidden-columns="['id', 'pictureSource']"
+      :filter-by="filters"
     >
+      <template #[`item.name`]="{ item }">
+        <div class="flex gap-3 items-center">
+          <AvatarField
+            tw-class="flex-shrink-0"
+            :src="item.pictureSource"
+            :alt="item.name"
+          />
+          <span>
+
+            {{ item.name }}
+          </span>
+        </div>
+      </template>
       <template #[`item.departureDate`]="{ item }">
         {{ formatDate(item.departureDate) }}
       </template>
@@ -14,13 +35,30 @@
       <template #[`item.price`]="{ item }">
         {{ formatPrice(item.price) }}
       </template>
+      <template #[`item.tourDescription`]="{ item }">
+        <TextTooltip
+          :text="item.tourDescription"
+          position="top"
+        >
+          <div class="truncate max-w-56">
+            {{ item.tourDescription }}
+          </div>
+        </TextTooltip>
+      </template>
+
+      <template #[`item.averageRating`]="{ item }">
+        <StarsRatingField :value="item.averageRating" />
+      </template>
     </DataTable>
   </div>
 </template>
 
 <script lang="ts" setup>
-import DataTable from '~/components/table/DataTable.vue'
+import AvatarField from '~/components/AvatarField.vue'
+import TextInput from '~/components/inputs/TextInput.vue'
+import DataTable, { type DataTableFilters } from '~/components/table/DataTable.vue'
 import { travelsClient } from '~/resources/travels'
+import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
 import { formatDate, formatPrice } from '~/utils'
 
@@ -31,4 +69,10 @@ useHead({
 const { data, status } = useResourceClientFetch(travelsClient, {
   method: 'GET',
 })
+
+const filters = computed<DataTableFilters<Travel>>(() => ({
+  name: search.value,
+}))
+
+const search = ref<string>()
 </script>

@@ -1,6 +1,6 @@
 <template>
   <BaseInput
-    v-model="modelValue"
+    v-model="model"
     type="text"
     :placeholder="label"
     :tw-class="twClass"
@@ -18,5 +18,7 @@ type TextInputProps = {
 } & Omit<BaseInputProps, 'type'>
 defineProps<TextInputProps>()
 
-const modelValue = defineModel<string>()
+defineEmits(['input'])
+
+const model = defineModel<string>()
 </script>

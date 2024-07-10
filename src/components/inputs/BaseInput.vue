@@ -10,26 +10,28 @@
     />
     <input
       v-bind="$attrs"
+      v-model="model"
       :type
       class="group w-full h-full bg-transparent focus:outline-none"
       :disabled
+      @input="$emit('input', $event)"
     >
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="TModelValue">
 import {
   FontAwesomeIcon,
   type FontAwesomeIconProps,
 } from '@fortawesome/vue-fontawesome'
 import type { WithTailwindClass } from '~/types'
 
-defineComponent({ name: 'BaseInput' })
 export type BaseInputProps = {
   type: HTMLInputElement['type']
   disabled?: boolean
   prependIcon?: FontAwesomeIconProps['icon']
 } & WithTailwindClass
+defineComponent({ name: 'BaseInput' })
 defineProps<BaseInputProps>()
 
 type BaseInputSlots = {
@@ -37,4 +39,8 @@ type BaseInputSlots = {
   prependIcon: () => any
 }
 defineSlots<BaseInputSlots>()
+
+defineEmits(['input'])
+
+const model = defineModel<TModelValue>()
 </script>

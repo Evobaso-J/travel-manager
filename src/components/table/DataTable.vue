@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <template
-          v-for="(item, itemIndex) in props.items"
+          v-for="(item, itemIndex) in filteredItems"
           :key="itemIndex"
         >
           <tr class="odd:bg-primary-50 hover:bg-primary-100 group">
@@ -57,6 +57,7 @@ import BaseCard from '~/components/BaseCard.vue'
 import { toNaturalCase } from '~/utils'
 
 export type DataTableStatus = 'loading' | 'error' | 'empty' | 'idle'
+export type DataTableFilters<T> = Partial<Record<keyof T, string | undefined>>
 
 defineComponent({ name: 'DataTable' })
 
@@ -73,6 +74,7 @@ defineSlots<DataTableSlots<TDataTableItem>>()
     error?: boolean
     headersMapper?: (itemText: string) => string
     hiddenColumns?: (keyof T)[]
+    filterBy?: DataTableFilters<TDataTableItem>
   }
 const props = withDefaults(defineProps<DataTableProps<TDataTableItem>>(), {
   headersMapper: (itemText: string) => toNaturalCase(itemText),
@@ -83,10 +85,24 @@ const headers = computed<(keyof TDataTableItem)[]>(() => Object.keys(props.items
 const parsedHeaders = computed<string[]>(() => headers.value
   .map(header => props.headersMapper(header.toString())))
 
-const dataTableStatus = computed<DataTableStatus >(() => {
+const dataTableStatus = computed<DataTableStatus>(() => {
   if (props.error) return 'error'
   if (props.loading) return 'loading'
   if (props.items.length === 0) return 'empty'
   return 'idle'
+})
+
+const filteredItems = computed<TDataTableItem[]>(() => {
+  if (!props.filterBy) return props.items
+  console.log(props.filterBy)
+  const searchCriteria = Object.entries(props.filterBy).map(([key, value]) => ({
+    key,
+    value: (value ?? '').toLowerCase(),
+  }))
+
+  return props.items.filter(item => Object.values(item).some((value) => {
+    if (typeof value !== 'string') return false
+    return searchCriteria.some(({ value: searchValue }) => value.toLowerCase().includes(searchValue))
+  }))
 })
 </script>
