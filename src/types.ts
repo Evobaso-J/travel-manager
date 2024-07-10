@@ -1,3 +1,5 @@
+import type { HTMLAttributes } from 'vue'
+
 export type WithTailwindClass = {
-  twClass?: string
+  twClass?: HTMLAttributes['class']
 }

@@ -14,14 +14,13 @@
       :filter-by="filters"
     >
       <template #[`item.name`]="{ item }">
-        <div class="flex gap-3 items-center">
+        <div class="flex gap-4 items-center">
           <AvatarField
             tw-class="flex-shrink-0"
             :src="item.pictureSource"
             :alt="item.name"
           />
           <span>
-
             {{ item.name }}
           </span>
         </div>
@@ -54,7 +53,8 @@
 </template>
 
 <script lang="ts" setup>
-import AvatarField from '~/components/AvatarField.vue'
+import AvatarField from '~/components/fields/AvatarField.vue'
+import StarsRatingField from '~/components/fields/StarsRatingField.vue'
 import TextInput from '~/components/inputs/TextInput.vue'
 import DataTable, { type DataTableFilters } from '~/components/table/DataTable.vue'
 import { travelsClient } from '~/resources/travels'
