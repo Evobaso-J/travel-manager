@@ -1,8 +1,8 @@
 <template>
   <BaseInput
     v-model="model"
-    type="text"
-    :label
+    type="date"
+    :label="label"
     :prepend-icon="prependIcon"
     :disabled="disabled"
   />
@@ -11,11 +11,12 @@
 <script setup lang='ts'>
 import BaseInput, { type BaseInputProps } from '~/components/inputs/BaseInput.vue'
 
-defineComponent({ name: 'TextInput' })
-type TextInputProps = {
+defineComponent({ name: 'DateInput' })
+
+type DateInputProps = {
   label: string
 } & Omit<BaseInputProps, 'type'>
-defineProps<TextInputProps>()
+defineProps<DateInputProps>()
 
-const model = defineModel<string>()
+const model = defineModel<Date>()
 </script>

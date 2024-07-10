@@ -10,31 +10,30 @@
         :icon="prependIcon"
         class="mr-2"
       />
-      <input
+      <textarea
         v-bind="$attrs"
         v-model="model"
-        :type
-        class="group w-full h-full bg-transparent focus:outline-none"
+        class="group w-full h-full bg-transparent focus:outline-none resize-none"
         :disabled
+        :rows="4"
         @input="$emit('input', $event)"
-      >
+      />
     </div>
   </label>
 </template>
 
-<script setup lang="ts" generic="TModelValue">
+<script setup lang="ts">
 import {
   FontAwesomeIcon,
   type FontAwesomeIconProps,
 } from '@fortawesome/vue-fontawesome'
 
 export type BaseInputProps = {
-  type: HTMLInputElement['type']
   disabled?: boolean
   prependIcon?: FontAwesomeIconProps['icon']
   label: string
 }
-defineComponent({ name: 'BaseInput' })
+defineComponent({ name: 'TextareaInput' })
 defineProps<BaseInputProps>()
 
 type BaseInputSlots = {
@@ -45,5 +44,5 @@ defineSlots<BaseInputSlots>()
 
 defineEmits(['input'])
 
-const model = defineModel<TModelValue>()
+const model = defineModel<string>()
 </script>

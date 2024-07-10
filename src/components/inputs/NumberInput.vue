@@ -1,7 +1,7 @@
 <template>
   <BaseInput
     v-model="model"
-    type="text"
+    type="number"
     :label
     :prepend-icon="prependIcon"
     :disabled="disabled"
@@ -11,11 +11,11 @@
 <script setup lang='ts'>
 import BaseInput, { type BaseInputProps } from '~/components/inputs/BaseInput.vue'
 
-defineComponent({ name: 'TextInput' })
-type TextInputProps = {
-  label: string
-} & Omit<BaseInputProps, 'type'>
-defineProps<TextInputProps>()
+defineComponent({ name: 'NumberInput' })
+  type NumberInputProps = {
+    label: string
+  } & Omit<BaseInputProps, 'type'>
+defineProps<NumberInputProps>()
 
-const model = defineModel<string>()
+const model = defineModel<number>()
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-col items-center gap-1 cursor-pointer"
+    class="flex flex-col items-start gap-1 flex-grow-0"
   >
-    <label>{{ label }}</label>
-    <div class="flex flex-row-reverse gap-1 group">
+    <label class="block mb-1 text-sm text-gray-700">{{ label }}</label>
+    <div class="flex flex-row-reverse gap-1 cursor-pointer">
       <FontAwesomeIcon
         v-for="i in 5"
         :key="i"
