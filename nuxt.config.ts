@@ -9,10 +9,15 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
-  ],
+    '@nuxt/image'],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
+
+  image: {
+    inject: true,
+    domains: ['https://images.unsplash.com'],
+  },
 
   eslint: {
     config: {
