@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang='ts'>
 import AvatarField from '~/components/fields/AvatarField.vue'
 import StarsRatingField from '~/components/fields/StarsRatingField.vue'
 import TextInput from '~/components/inputs/TextInput.vue'
@@ -62,9 +62,7 @@ import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
 import { formatDate, formatPrice } from '~/utils'
 
-useHead({
-  title: 'Travels',
-})
+defineComponent({ name: 'TravelsTable' })
 
 const { data, status } = useResourceClientFetch(travelsClient, {
   method: 'GET',

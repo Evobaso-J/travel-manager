@@ -57,7 +57,7 @@
   </DataTable>
 </template>
 
-<script lang="ts" setup>
+<script setup lang='ts'>
 import GenderField from '~/components/fields/GenderField.vue'
 import IconField from '~/components/fields/IconField.vue'
 import DataTable from '~/components/table/DataTable.vue'
@@ -65,9 +65,7 @@ import { bookingsClient } from '~/resources/bookings'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
 import { mapPaymentTypeToString } from '~/utils'
 
-useHead({
-  title: 'Bookings',
-})
+defineComponent({ name: 'BookingsTable' })
 
 const { data, status } = useResourceClientFetch(bookingsClient, {
   method: 'GET',
