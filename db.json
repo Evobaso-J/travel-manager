@@ -59,7 +59,7 @@
         {
             "id": 9,
             "paymentType": "revolut",
-            "travelId": 10,
+            "travelId": 9,
             "customerId": 9,
             "notes": "Requesting extra leg room."
         },
@@ -67,7 +67,7 @@
             "id": 10,
             "paymentType": "creditTransfer",
             "travelId": 1,
-            "customerId": 10,
+            "customerId": 7,
             "notes": "Bringing a pet, needs pet-friendly accommodation."
         }
     ],
@@ -189,14 +189,6 @@
             "phone": "555-0102",
             "age": 34,
             "gender": "female"
-        },
-        {
-            "id": 3,
-            "name": "Sam Chris",
-            "email": "sam.chris@example.com",
-            "phone": "555-0103",
-            "age": 40,
-            "gender": "other"
         },
         {
             "id": 3,
