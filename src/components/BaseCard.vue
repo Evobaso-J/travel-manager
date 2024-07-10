@@ -1,5 +1,8 @@
 <template>
-  <div :class="`bg-white shadow-md rounded-lg overflow-scroll p-4 ${twClass}`">
+  <div
+    class="bg-white shadow-md rounded-lg overflow-scroll p-4"
+    :twClass
+  >
     <slot />
   </div>
 </template>

@@ -1,8 +1,7 @@
 <template>
   <div class="relative">
-    <BaseCard
-      class="absolute z-50 p-2 text-xs bg-gray-800 text-white rounded-md
-    transition-opacity duration-300 opacity-0"
+    <div
+      class="absolute z-50 p-2 text-xs bg-gray-800 text-white rounded-md transition-opacity duration-300 opacity-0"
       :class="{
         'opacity-100': isOpen,
         'invisible': !isOpen,
@@ -13,7 +12,7 @@
       }"
     >
       {{ text }}
-    </BaseCard>
+    </div>
     <div
       @mouseenter="toggleTooltip"
       @mouseleave="toggleTooltip"
@@ -24,7 +23,6 @@
 </template>
 
 <script setup lang='ts'>
-import BaseCard from './BaseCard.vue'
 import type { WithTailwindClass } from '~/types'
 
 defineComponent({ name: 'TextTooltip' })

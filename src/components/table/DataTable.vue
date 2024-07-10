@@ -94,7 +94,6 @@ const dataTableStatus = computed<DataTableStatus>(() => {
 
 const filteredItems = computed<TDataTableItem[]>(() => {
   if (!props.filterBy) return props.items
-  console.log(props.filterBy)
   const searchCriteria = Object.entries(props.filterBy).map(([key, value]) => ({
     key,
     value: (value ?? '').toLowerCase(),
