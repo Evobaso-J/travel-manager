@@ -22,10 +22,11 @@ export function useResourceClientFetch<
     }
   }
   else if (WRITE_METHODS.includes(method as typeof WRITE_METHODS[number])) {
-    const data = resourceClient.write(options.body as TInternal[])
+    const data = computed(() => resourceClient.write(options.body as TInternal[]))
     fetchOptions = {
       ...fetchOptions,
       body: data,
+      watch: false,
     }
   }
   else {

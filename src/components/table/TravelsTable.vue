@@ -27,10 +27,10 @@
         </div>
       </template>
       <template #[`item.departureDate`]="{ item }">
-        {{ formatDate(item.departureDate) }}
+        {{ formatDateToStandard(item.departureDate) }}
       </template>
       <template #[`item.returnDate`]="{ item }">
-        {{ formatDate(item.returnDate) }}
+        {{ formatDateToStandard(item.returnDate) }}
       </template>
       <template #[`item.price`]="{ item }">
         {{ formatPrice(item.price) }}
@@ -61,7 +61,7 @@ import DataTable, { type DataTableFilters } from '~/components/table/DataTable.v
 import { travelsClient } from '~/resources/travels'
 import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
-import { formatDate, formatPrice } from '~/utils'
+import { formatDateToStandard, formatPrice } from '~/utils'
 
 defineComponent({ name: 'TravelsTable' })
 

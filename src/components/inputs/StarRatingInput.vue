@@ -2,19 +2,23 @@
   <div
     class="flex flex-col items-start gap-1 flex-grow-0"
   >
-    <label class="block mb-1 text-sm text-gray-700">{{ label }}</label>
-    <div class="flex flex-row-reverse gap-1 cursor-pointer">
-      <FontAwesomeIcon
+    <label class="block text-sm text-gray-700">{{ label }}</label>
+    <div class="flex flex-row-reverse cursor-pointer">
+      <div
         v-for="i in 5"
         :key="i"
-        :icon="{ prefix: 'fas', iconName: 'star' }"
-        class="peer"
+        class="peer px-0.5"
         :class="{
           'text-secondary-600': (5-i+1) <= model,
           'text-gray-300 peer-hover:text-secondary-300 hover:text-secondary-300': (5-i+1) > model,
         }"
-        @click="updateValue(i)"
-      />
+      >
+        <FontAwesomeIcon
+          :icon="{ prefix: 'fas', iconName: 'star' }"
+
+          @click="updateValue(i)"
+        />
+      </div>
     </div>
   </div>
 </template>

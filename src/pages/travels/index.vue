@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <section>
     <TravelsTable />
     <CreateButton />
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>

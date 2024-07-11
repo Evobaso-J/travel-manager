@@ -10,6 +10,7 @@
 
 <script setup lang='ts'>
 import BaseInput, { type BaseInputProps } from '~/components/inputs/BaseInput.vue'
+import { formatDateToHTMLInputStandard } from '~/utils'
 
 defineComponent({ name: 'DateInput' })
 
@@ -18,5 +19,10 @@ type DateInputProps = {
 } & Omit<BaseInputProps, 'type'>
 defineProps<DateInputProps>()
 
-const model = defineModel<Date>()
+const model = defineModel<Date | string>({
+  set: (value) => {
+    const date = new Date(value)
+    return formatDateToHTMLInputStandard(date)
+  },
+})
 </script>
