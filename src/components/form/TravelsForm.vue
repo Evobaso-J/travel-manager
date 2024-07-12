@@ -1,61 +1,59 @@
 <template>
-  <div>
-    <BaseForm
-      :resource-client="travelsClient"
-      :data="formData"
-    >
-      <FormRow>
-        <TextInput
-          v-model="formData.name"
-          label="Name"
-          required
-          :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
-        />
-      </FormRow>
-      <FormRow>
-        <DateInput
-          v-model="formData.departureDate"
-          label="Departure Date"
-          required
-          :prepend-icon="{ prefix: 'fas', iconName: 'plane-departure' }"
-          :max="formData.returnDate"
-        />
-        <DateInput
-          v-model="formData.returnDate"
-          label="Return Date"
-          required
-          :prepend-icon="{ prefix: 'fas', iconName: 'plane-arrival' }"
-          :icon-props="{ flip: 'horizontal' }"
-          :min="formData.departureDate"
-        />
-      </FormRow>
-      <FormRow>
-        <NumberInput
-          v-model="formData.price"
-          label="Price (€)"
-          :min="0"
-          required
-        />
-        <StarRatingInput
-          v-model="formData.averageRating"
-          label="Average Rating"
-        />
-      </FormRow>
-      <FormRow>
-        <TextareaInput
-          v-model="formData.tourDescription"
-          label="Tour Description"
-          :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
-        />
-        <TextInput
-          v-model="formData.pictureSource"
-          label="Cover Image URL"
-          :prepend-icon="{ prefix: 'fas', iconName: 'image' }"
-        />
-      </FormRow>
-      <section />
-    </BaseForm>
-  </div>
+  <BaseForm
+    :resource-client="travelsClient"
+    :data="formData"
+  >
+    <FormRow>
+      <TextInput
+        v-model="formData.name"
+        label="Name"
+        required
+        :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
+      />
+    </FormRow>
+    <FormRow>
+      <DateInput
+        v-model="formData.departureDate"
+        label="Departure Date"
+        required
+        :prepend-icon="{ prefix: 'fas', iconName: 'plane-departure' }"
+        :max="formData.returnDate"
+      />
+      <DateInput
+        v-model="formData.returnDate"
+        label="Return Date"
+        required
+        :prepend-icon="{ prefix: 'fas', iconName: 'plane-arrival' }"
+        :icon-props="{ flip: 'horizontal' }"
+        :min="formData.departureDate"
+      />
+    </FormRow>
+    <FormRow>
+      <NumberInput
+        v-model="formData.price"
+        label="Price (€)"
+        :min="0"
+        required
+      />
+      <StarRatingInput
+        v-model="formData.averageRating"
+        label="Average Rating"
+      />
+    </FormRow>
+    <FormRow>
+      <TextareaInput
+        v-model="formData.tourDescription"
+        label="Tour Description"
+        :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
+      />
+      <TextInput
+        v-model="formData.pictureSource"
+        label="Cover Image URL"
+        :prepend-icon="{ prefix: 'fas', iconName: 'image' }"
+      />
+    </FormRow>
+    <section />
+  </BaseForm>
 </template>
 
 <script setup lang='ts'>

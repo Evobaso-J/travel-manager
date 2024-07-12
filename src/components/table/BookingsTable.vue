@@ -38,7 +38,7 @@
       </div>
     </template>
     <template #[`item.travel`]="{ item }">
-      {{ item.travel.name }}
+      {{ item.travel?.name }}
     </template>
 
     <template #[`item.paymentType`]="{ item }">
