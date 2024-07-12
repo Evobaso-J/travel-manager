@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <BaseForm
-      :resource-client="bookingsClient"
-      :data="formData"
-    >
-      <FormRow>
-        <SelectInput
-          v-model="formData.paymentType"
-          required
-          label="Payment Type"
-          :options="paymentOptions"
-          :prepend-icon="{ prefix: 'fas', iconName: 'credit-card' }"
-        />
+  <WizardForm
+    :resource-client="bookingsClient"
+    :data="formData"
+    :steps
+  >
+    <template #[`step.1`]="{ currentStep, step }">
+      <FormRow
+        v-show="currentStep===step.value"
+      >
         <AutocompleteInput
           v-model:input-value="formData.travelId"
           required
@@ -20,26 +16,44 @@
           :options="travelSelectOption"
         />
       </FormRow>
-      <FormRow>
+    </template>
+    <template #[`step.2`]="{ currentStep, step }">
+      <FormRow
+        v-show="currentStep===step.value"
+      >
         <TextareaInput
           v-model="formData.notes"
           label="Internal notes"
           :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
         />
       </FormRow>
-      <section />
-    </BaseForm>
+    </template>
+    <template #[`step.3`]="{ currentStep, step }">
+      <FormRow
+        v-show="currentStep===step.value"
+      >
+        <SelectInput
+          v-model="formData.paymentType"
+          required
+          label="Payment Type"
+          :options="paymentOptions"
+          :prepend-icon="{ prefix: 'fas', iconName: 'credit-card' }"
+        />
+      </FormRow>
+    </template>
+
     <pre>
       {{ formData }}
     </pre>
-  </div>
+  </WizardForm>
 </template>
 
 <script setup lang='ts'>
 import SelectInput, { type SelectOption } from '../inputs/SelectInput.vue'
 import TextareaInput from '../inputs/TextareaInput.vue'
 import AutocompleteInput from '../inputs/AutocompleteInput.vue'
-import BaseForm from './BaseForm.vue'
+import WizardForm from './WizardForm.vue'
+import type { FormStep } from './WizardFormSteps.vue'
 import { paymentTypeToStringMap } from '~/utils'
 import { bookingsClient } from '~/resources/bookings'
 import type { Booking, PaymentType } from '~/resources/bookings/types/internal'
@@ -89,4 +103,10 @@ const travelSelectOption = computed<SelectOption<Travel['id']>[]>(() => (travels
   value: travel.id!,
   text: travel.name,
 })))
+
+const steps: FormStep[] = [
+  { text: 'Travel', value: 1, icon: { prefix: 'fas', iconName: 'earth' } },
+  { text: 'Customer', value: 2, icon: { prefix: 'fas', iconName: 'user' } },
+  { text: 'Payment', value: 3, icon: { prefix: 'fas', iconName: 'money-bill' } },
+]
 </script>
