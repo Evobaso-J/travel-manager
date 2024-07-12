@@ -7,7 +7,7 @@
         iconName: 'trash',
       }"
       class="text-red-500 hover:text-red-600"
-      @click="deleteItem"
+      @click.stop="deleteItem"
     />
     <FontAwesomeIcon
       v-else

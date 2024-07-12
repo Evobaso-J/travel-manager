@@ -4,7 +4,7 @@
     :src="`${src}${unsplashResizingSuffix}`"
     :alt
     fit="cover"
-    @click="toggleLargeImage"
+    @click.stop="toggleLargeImage"
   />
   <Teleport to="body">
     <div

@@ -36,7 +36,10 @@
             v-for="(item, itemIndex) in filteredItems"
             :key="itemIndex"
           >
-            <tr class="group odd:bg-primary-50 hover:bg-primary-100 group">
+            <tr
+              class="group odd:bg-primary-50 hover:bg-primary-100 cursor-pointer"
+              @click="goToEdit(item.id)"
+            >
               <template
                 v-for="header in headers"
                 :key="`${itemIndex}${header}`"
@@ -128,4 +131,9 @@ const filteredItems = computed<TDataTableItem[]>(() => {
     return searchCriteria.some(({ value: searchValue }) => value.toLowerCase().includes(searchValue))
   }))
 })
+
+const route = useRoute()
+const goToEdit = (id: number) => {
+  navigateTo(`${route.path}/${id}/edit`)
+}
 </script>
