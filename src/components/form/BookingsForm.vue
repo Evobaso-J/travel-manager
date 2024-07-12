@@ -5,17 +5,22 @@
     :steps
   >
     <template #[`step.1`]="{ currentStep, step }">
-      <FormRow
+      <section
         v-show="currentStep===step.value"
       >
-        <AutocompleteInput
-          v-model:input-value="formData.travelId"
-          required
-          :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
-          label="Travel"
-          :options="travelSelectOption"
+        <FormRow>
+          <AutocompleteInput
+            v-model:input-value="formData.travelId"
+            required
+            :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
+            label="Travel"
+            :options="travelSelectOption"
+          />
+        </FormRow>
+        <SelectedTravelPreviewCard
+          :travel="selectedTravel"
         />
-      </FormRow>
+      </section>
     </template>
     <template #[`step.2`]="{ currentStep, step }">
       <FormRow
@@ -52,6 +57,7 @@
 import SelectInput, { type SelectOption } from '../inputs/SelectInput.vue'
 import TextareaInput from '../inputs/TextareaInput.vue'
 import AutocompleteInput from '../inputs/AutocompleteInput.vue'
+import SelectedTravelPreviewCard from '../SelectedTravelPreviewCard.vue'
 import WizardForm from './WizardForm.vue'
 import type { FormStep } from './WizardFormSteps.vue'
 import { paymentTypeToStringMap } from '~/utils'
@@ -109,4 +115,6 @@ const steps: FormStep[] = [
   { text: 'Customer', value: 2, icon: { prefix: 'fas', iconName: 'user' } },
   { text: 'Payment', value: 3, icon: { prefix: 'fas', iconName: 'money-bill' } },
 ]
+
+const selectedTravel = computed<Travel | undefined>(() => travels.value?.find(travel => travel.id === formData.value.travelId))
 </script>
