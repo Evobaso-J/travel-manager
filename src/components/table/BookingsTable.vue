@@ -1,6 +1,6 @@
 <template>
   <DataTable
-    :items="data ?? []"
+    :items="tableData ?? []"
     :loading="status === 'pending'"
     :error="status === 'error'"
     :hidden-columns="['id']"
@@ -63,12 +63,31 @@ import GenderField from '~/components/fields/GenderField.vue'
 import IconField from '~/components/fields/IconField.vue'
 import DataTable from '~/components/table/DataTable.vue'
 import { bookingsClient } from '~/resources/bookings'
+import type { Booking } from '~/resources/bookings/types/internal'
+import { travelsClient } from '~/resources/travels'
+import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
 import { mapPaymentTypeToString } from '~/utils'
 
 defineComponent({ name: 'BookingsTable' })
 
-const { data, status } = useResourceClientFetch(bookingsClient, {
+const { data: bookingsData, status } = useResourceClientFetch(bookingsClient, {
   method: 'GET',
+})
+const travelIds = computed(() => (bookingsData.value ?? []).map(booking => booking.travelId))
+
+const { data: travelsData } = useResourceClientFetch(travelsClient, {
+  method: 'GET',
+  query: {
+    id: travelIds,
+  },
+})
+
+type TableBooking = Omit<Booking, 'travelId'> & { travel: Travel }
+const tableData = computed(() => {
+  return (bookingsData.value ?? []).map<TableBooking>(booking => ({
+    ...booking,
+    travel: (travelsData.value ?? []).find(travel => travel.id === booking.travelId)!,
+  }))
 })
 </script>
