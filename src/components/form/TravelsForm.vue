@@ -16,13 +16,17 @@
         <DateInput
           v-model="formData.departureDate"
           label="Departure Date"
+          required
           :prepend-icon="{ prefix: 'fas', iconName: 'plane-departure' }"
+          :max="formData.returnDate"
         />
         <DateInput
           v-model="formData.returnDate"
           label="Return Date"
+          required
           :prepend-icon="{ prefix: 'fas', iconName: 'plane-arrival' }"
           :icon-props="{ flip: 'horizontal' }"
+          :min="formData.departureDate"
         />
       </FormRow>
       <FormRow>
@@ -30,6 +34,7 @@
           v-model="formData.price"
           label="Price (€)"
           :min="0"
+          required
         />
         <StarRatingInput
           v-model="formData.averageRating"

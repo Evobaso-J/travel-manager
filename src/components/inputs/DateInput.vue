@@ -6,6 +6,8 @@
     :prepend-icon="prependIcon"
     :disabled="disabled"
     :icon-props="iconProps"
+    :min="min ? formatDateToHTMLInputStandard(min) : undefined"
+    :max="max ? formatDateToHTMLInputStandard(max) : undefined"
   />
 </template>
 
@@ -17,6 +19,8 @@ defineComponent({ name: 'DateInput' })
 
 type DateInputProps = {
   label: string
+  min?: Date
+  max?: Date
 } & Omit<BaseInputProps, 'type'>
 defineProps<DateInputProps>()
 
