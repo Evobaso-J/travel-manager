@@ -20,9 +20,12 @@ type DateInputProps = {
 defineProps<DateInputProps>()
 
 const model = defineModel<Date | string>({
-  set: (value) => {
-    const date = new Date(value)
-    return formatDateToHTMLInputStandard(date)
+  get: (value) => {
+    if (typeof value === 'string') {
+      return value
+    }
+    return formatDateToHTMLInputStandard(value)
   },
+  set: value => new Date(value),
 })
 </script>

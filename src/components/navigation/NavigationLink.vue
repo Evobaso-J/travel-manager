@@ -2,9 +2,7 @@
   <li>
     <NuxtLink
       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-primary-100"
-      :class="{
-        'bg-primary-100': isPointedRouteActive,
-      }"
+      active-class="bg-primary-100"
       :to
     >
       <FontAwesomeIcon
@@ -25,8 +23,5 @@ export type NavigationLinkProps = {
   text: string
   prependIcon: FontAwesomeIconProps['icon']
 }
-const props = defineProps<NavigationLinkProps>()
-
-const route = useRoute()
-const isPointedRouteActive = computed(() => route.path === props.to)
+defineProps<NavigationLinkProps>()
 </script>
