@@ -2,7 +2,9 @@
   <div class="relative">
     <input
       v-model="inputValue"
+      :required
       class="hidden"
+      :min="0"
     >
     <TextInput
       v-model="searchModel"
@@ -37,6 +39,7 @@ defineComponent({ name: 'AutocompleteInput' })
 
 type AutocompleteInputProps<T> = {
   options: SelectOption<T>[]
+  required?: boolean
 } & BaseInputProps
 
 const props = defineProps<AutocompleteInputProps<TInput>>()
