@@ -8,6 +8,7 @@
       <FontAwesomeIcon
         v-if="prependIcon"
         :icon="prependIcon"
+        v-bind="iconProps"
         class="mr-2"
       />
       <input
@@ -32,6 +33,7 @@ export type BaseInputProps = {
   type: HTMLInputElement['type']
   disabled?: boolean
   prependIcon?: FontAwesomeIconProps['icon']
+  iconProps?: Omit<FontAwesomeIconProps, 'icon'>
   label: string
 }
 defineComponent({ name: 'BaseInput' })

@@ -5,6 +5,7 @@
     :label="label"
     :prepend-icon="prependIcon"
     :disabled="disabled"
+    :icon-props="iconProps"
   />
 </template>
 

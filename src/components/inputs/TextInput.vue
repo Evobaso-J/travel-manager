@@ -2,9 +2,7 @@
   <BaseInput
     v-model="model"
     type="text"
-    :label
-    :prepend-icon="prependIcon"
-    :disabled="disabled"
+    :="$props"
   />
 </template>
 

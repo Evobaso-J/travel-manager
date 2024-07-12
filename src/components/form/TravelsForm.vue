@@ -4,38 +4,52 @@
       :resource-client="travelsClient"
       :data="formData"
     >
-      <section class="grid grid-cols-3 gap-4">
+      <FormRow>
         <TextInput
           v-model="formData.name"
           label="Name"
           required
+          :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
         />
+      </FormRow>
+      <FormRow>
         <DateInput
           v-model="formData.departureDate"
           label="Departure Date"
+          :prepend-icon="{ prefix: 'fas', iconName: 'plane-departure' }"
         />
         <DateInput
           v-model="formData.returnDate"
           label="Return Date"
+          :prepend-icon="{ prefix: 'fas', iconName: 'plane-arrival' }"
+          :icon-props="{ flip: 'horizontal' }"
         />
+      </FormRow>
+      <FormRow>
         <NumberInput
           v-model="formData.price"
           label="Price (€)"
           :min="0"
         />
-        <TextareaInput
-          v-model="formData.tourDescription"
-          label="Tour Description"
-        />
         <StarRatingInput
           v-model="formData.averageRating"
           label="Average Rating"
         />
-      </section>
+      </FormRow>
+      <FormRow>
+        <TextareaInput
+          v-model="formData.tourDescription"
+          label="Tour Description"
+          :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
+        />
+        <TextInput
+          v-model="formData.pictureSource"
+          label="Cover Image URL"
+          :prepend-icon="{ prefix: 'fas', iconName: 'image' }"
+        />
+      </FormRow>
+      <section />
     </BaseForm>
-    <pre>
-        {{ formData }}
-    </pre>
   </div>
 </template>
 
@@ -51,6 +65,12 @@ import { travelsClient } from '~/resources/travels'
 
 defineComponent({ name: 'TravelsForm' })
 
+type TravelsFormProps = {
+  initialData?: Ref<Travel | undefined>
+}
+
+const props = defineProps<TravelsFormProps>()
+
 const formData = ref<Travel>({
   id: undefined,
   name: '',
@@ -61,4 +81,10 @@ const formData = ref<Travel>({
   pictureSource: '',
   tourDescription: '',
 })
+
+watch(() => props.initialData, (initialData) => {
+  if (initialData?.value) {
+    Object.assign(formData.value, initialData.value)
+  }
+}, { immediate: true })
 </script>
