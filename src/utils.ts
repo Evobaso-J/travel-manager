@@ -13,11 +13,10 @@ export const formatDateToHTMLInputStandard = (date: Date): string =>
 export const formatPrice = (price: number): string =>
   price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })
 
-export const mapPaymentTypeToString = (paymentType: PaymentType): string => {
-  if (paymentType === 'creditTransfer') return 'Credit Transfer'
-  if (paymentType === 'payPal') return 'PayPal'
-  if (paymentType === 'revolut') return 'Revolut'
-  throw new Error('Unsupported payment type')
+export const paymentTypeToStringMap: Record<PaymentType, string> = {
+  creditTransfer: 'Credit Transfer',
+  payPal: 'PayPal',
+  revolut: 'Revolut',
 }
 
 export const sleep = (ms: number = 1000): Promise<void> => {

@@ -42,7 +42,7 @@
     </template>
 
     <template #[`item.paymentType`]="{ item }">
-      {{ mapPaymentTypeToString(item.paymentType) }}
+      {{ paymentTypeToStringMap[item.paymentType] }}
     </template>
 
     <template #[`item.notes`]="{ item }">
@@ -67,7 +67,7 @@ import type { Booking } from '~/resources/bookings/types/internal'
 import { travelsClient } from '~/resources/travels'
 import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
-import { mapPaymentTypeToString } from '~/utils'
+import { paymentTypeToStringMap } from '~/utils'
 
 defineComponent({ name: 'BookingsTable' })
 

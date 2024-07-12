@@ -1,41 +1,27 @@
 <template>
-  <label>
-    <span class="block text-sm text-gray-700">{{ label }}</span>
-    <div
-      class="flex items-center w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus-within:border-primary-500"
-      :class="{ 'cursor-not-allowed': disabled }"
+  <InputLayout
+    :label="label"
+    :prepend-icon="prependIcon"
+    :icon-props="iconProps"
+  >
+    <input
+      v-bind="$attrs"
+      v-model="model"
+      :type
+      class="group w-full h-full bg-transparent focus:outline-none"
+      :disabled
+      @input="$emit('input', $event)"
     >
-      <FontAwesomeIcon
-        v-if="prependIcon"
-        :icon="prependIcon"
-        v-bind="iconProps"
-        class="mr-2"
-      />
-      <input
-        v-bind="$attrs"
-        v-model="model"
-        :type
-        class="group w-full h-full bg-transparent focus:outline-none"
-        :disabled
-        @input="$emit('input', $event)"
-      >
-    </div>
-  </label>
+  </InputLayout>
 </template>
 
 <script setup lang="ts" generic="TModelValue">
-import {
-  FontAwesomeIcon,
-  type FontAwesomeIconProps,
-} from '@fortawesome/vue-fontawesome'
+import InputLayout, { type InputLayoutProps } from './InputLayout.vue'
 
 export type BaseInputProps = {
   type: HTMLInputElement['type']
-  disabled?: boolean
-  prependIcon?: FontAwesomeIconProps['icon']
-  iconProps?: Omit<FontAwesomeIconProps, 'icon'>
   label: string
-}
+} & InputLayoutProps
 defineComponent({ name: 'BaseInput' })
 defineProps<BaseInputProps>()
 
