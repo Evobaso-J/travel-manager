@@ -1,7 +1,7 @@
 <template>
   <BaseInput
     v-model="model"
-    type="text"
+    :type="email ? 'email' : 'text'"
     :="$props"
     @clear="emit('clear')"
     @input="emit('input', $event)"
@@ -14,6 +14,7 @@ import BaseInput, { type BaseInputEmits, type BaseInputProps } from '~/component
 defineComponent({ name: 'TextInput' })
 type TextInputProps = {
   label: string
+  email?: boolean
 } & Omit<BaseInputProps, 'type'>
 defineProps<TextInputProps>()
 
