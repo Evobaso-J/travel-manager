@@ -26,6 +26,10 @@ export default defineNuxtConfig({
     checker: true,
   },
 
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
+
   srcDir: 'src/',
   serverDir: 'server',
   ssr: false,

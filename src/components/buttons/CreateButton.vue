@@ -5,7 +5,7 @@
     class="fixed bottom-8 right-8 z-40 rounded-full aspect-square shadow-xl"
   >
     <button
-      class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-full aspect-square shadow-xl"
+      class="bg-primary-400 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-full aspect-square shadow-xl"
     >
       <FontAwesomeIcon
         :icon="{ prefix: 'fas', iconName: 'plus' }"
