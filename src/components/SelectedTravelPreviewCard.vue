@@ -28,9 +28,9 @@
     <FormRow>
       <TextField
         :value="travel?.price ? formatPrice(travel.price) : placeholderString"
-        label="Price (€)"
+        label="Price"
         required
-        :prepend-icon="{ prefix: 'fas', iconName: 'euro' }"
+        :prepend-icon="{ prefix: 'fas', iconName: 'money-bills' }"
       />
       <StarsRatingField
         label="Average Rating"
@@ -44,6 +44,7 @@
         :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
       />
       <TextField
+        :lines="6"
         :value="travel?.pictureSource ?? placeholderString"
         label="Cover Image URL"
         :prepend-icon="{ prefix: 'fas', iconName: 'image' }"
