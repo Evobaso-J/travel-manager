@@ -3,11 +3,13 @@
     v-model="model"
     type="number"
     :="$props"
+    @clear="emit('clear')"
+    @input="emit('input', $event)"
   />
 </template>
 
 <script setup lang='ts'>
-import BaseInput, { type BaseInputProps } from '~/components/inputs/BaseInput.vue'
+import BaseInput, { type BaseInputEmits, type BaseInputProps } from '~/components/inputs/BaseInput.vue'
 
 defineComponent({ name: 'NumberInput' })
   type NumberInputProps = {
@@ -16,4 +18,6 @@ defineComponent({ name: 'NumberInput' })
 defineProps<NumberInputProps>()
 
 const model = defineModel<number>()
+
+const emit = defineEmits<BaseInputEmits>()
 </script>

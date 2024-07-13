@@ -8,11 +8,13 @@
     :icon-props="iconProps"
     :min="min ? formatDateToHTMLInputStandard(min) : undefined"
     :max="max ? formatDateToHTMLInputStandard(max) : undefined"
+    @clear="emit('clear')"
+    @input="emit('input', $event)"
   />
 </template>
 
 <script setup lang='ts'>
-import BaseInput, { type BaseInputProps } from '~/components/inputs/BaseInput.vue'
+import BaseInput, { type BaseInputEmits, type BaseInputProps } from '~/components/inputs/BaseInput.vue'
 import { formatDateToHTMLInputStandard } from '~/utils'
 
 defineComponent({ name: 'DateInput' })
@@ -33,4 +35,6 @@ const model = defineModel<Date | string>({
   },
   set: value => new Date(value),
 })
+
+const emit = defineEmits<BaseInputEmits>()
 </script>

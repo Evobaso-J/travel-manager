@@ -91,7 +91,7 @@ const formData = ref<Booking>({
 
 watch(() => props.initialData, (initialData) => {
   if (initialData?.value) {
-    Object.assign(formData.value, initialData)
+    Object.assign(formData.value, initialData.value)
   }
 }, { immediate: true })
 

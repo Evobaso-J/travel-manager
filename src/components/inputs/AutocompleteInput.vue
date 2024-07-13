@@ -11,7 +11,8 @@
       v-bind="$props"
       @focus="showDropdown = true"
       @blur="hideDropdown"
-      @input="showDropdown = true"
+      @input="(event) => { showDropdown = true; emit('input', event) }"
+      @clear="clearInput"
     />
     <ul
       v-if="showDropdown && filteredOptions.length > 0"
@@ -32,17 +33,19 @@
 <script setup lang='ts' generic="TInput">
 import { defineComponent, ref } from 'vue'
 import type { SelectOption } from './SelectInput.vue'
-import type { BaseInputProps } from './TextareaInput.vue'
 import TextInput from './TextInput.vue'
+import type { BaseInputEmits, BaseInputProps } from './BaseInput.vue'
 
 defineComponent({ name: 'AutocompleteInput' })
 
 type AutocompleteInputProps<T> = {
   options: SelectOption<T>[]
   required?: boolean
-} & BaseInputProps
+} & Omit<BaseInputProps, 'type'>
 
 const props = defineProps<AutocompleteInputProps<TInput>>()
+const emit = defineEmits<BaseInputEmits>()
+
 const showDropdown = ref(false)
 
 const filteredOptions = computed(() => props.options.filter(option => option.text.toLowerCase().includes(searchModel.value?.toLowerCase() ?? '')))
@@ -59,6 +62,9 @@ const hideDropdown = async () => {
     showDropdown.value = false
   }, 200)
 }
-const searchModel = defineModel<SelectOption<TInput>['text']>('search')
-const inputValue = defineModel<SelectOption<TInput>['value']>('inputValue')
+const clearInput = () => {
+  inputValue.value = undefined
+  searchModel.value = undefined
+  emit('clear')
+}
 </script>

@@ -10,20 +10,18 @@
       class="group w-full h-full bg-transparent focus:outline-none resize-none"
       :disabled
       :rows="4"
-      @input="$emit('input', $event)"
+      @input="emit('input', $event)"
     />
   </InputLayout>
 </template>
 
 <script setup lang="ts">
-import InputLayout, { type InputLayoutProps } from './InputLayout.vue'
+import type { BaseInputEmits, BaseInputProps } from './BaseInput.vue'
+import InputLayout from './InputLayout.vue'
 
-export type BaseInputProps = {
-  disabled?: boolean
-  label: string
-} & InputLayoutProps
+export type TextareaInputProps = Omit<BaseInputProps, 'type' | 'clearable'>
 defineComponent({ name: 'TextareaInput' })
-defineProps<BaseInputProps>()
+defineProps<TextareaInputProps>()
 
 type BaseInputSlots = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +29,7 @@ type BaseInputSlots = {
 }
 defineSlots<BaseInputSlots>()
 
-defineEmits(['input'])
-
 const model = defineModel<string>()
+
+const emit = defineEmits<BaseInputEmits>()
 </script>
