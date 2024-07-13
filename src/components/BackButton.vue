@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="rounded-full ml-2 hover:bg-primary-100 px-1 aspect-square"
+    class="rounded-full hover:bg-primary-100 px-1 aspect-square"
   >
     <FontAwesomeIcon
       :icon="{ prefix: 'fas', iconName: 'arrow-left' }"
