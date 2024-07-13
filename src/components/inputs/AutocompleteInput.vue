@@ -5,6 +5,7 @@
       :required
       class="hidden"
       :min="0"
+      @input="updateSearchValue"
     >
     <TextInput
       v-model="searchModel"
@@ -30,7 +31,7 @@
   </div>
 </template>
 
-<script setup lang='ts' generic="TInput">
+<script setup lang='ts' generic="TInput extends string | number | undefined">
 import { defineComponent, ref } from 'vue'
 import type { SelectOption } from './SelectInput.vue'
 import TextInput from './TextInput.vue'
@@ -62,6 +63,17 @@ const hideDropdown = async () => {
     showDropdown.value = false
   }, 200)
 }
+const searchModel = defineModel<string>('search')
+const inputValue = defineModel<string | number | undefined>('inputValue')
+
+const updateSearchValue = () => {
+  // If the input value is empty and the search model is empty or has a value, do nothing
+  if ((!inputValue.value && !searchModel.value) || !!searchModel.value) return
+  searchModel.value = props.options.find(option => option.value === inputValue.value)?.text ?? ''
+}
+
+watch(() => inputValue.value, updateSearchValue)
+
 const clearInput = () => {
   inputValue.value = undefined
   searchModel.value = undefined
