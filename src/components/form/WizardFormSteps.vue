@@ -11,7 +11,13 @@
         'after:border-gray-200': activeStep <= step.value,
       }"
     >
-      <span class="flex items-center">
+      <span
+        class="flex items-center"
+        :class="{
+          'after:text-primary-600': activeStep > step.value,
+          'after:content-[\'•\'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500': steps.length - 1 !== index,
+        }"
+      >
         <FontAwesomeIcon
           :icon="step.icon"
           class="me-2"
@@ -23,7 +29,7 @@
 </template>
 
 <script setup lang='ts'>
-import type { FontAwesomeIconProps } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fontawesome'
 
 defineComponent({ name: 'WizardFormSteps' })
 
