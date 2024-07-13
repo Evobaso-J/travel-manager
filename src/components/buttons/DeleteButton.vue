@@ -1,12 +1,15 @@
 <template>
-  <button :disabled="loading">
+  <button
+    :disabled="loading"
+    class="rounded-full hover:bg-red-300 px-1 aspect-square"
+  >
     <FontAwesomeIcon
       v-if="!loading"
       :icon="{
         prefix: 'fas',
         iconName: 'trash',
       }"
-      class="text-red-500 hover:text-red-600"
+      class="text-red-500 aspect-square"
       @click.stop="deleteItem"
     />
     <FontAwesomeIcon

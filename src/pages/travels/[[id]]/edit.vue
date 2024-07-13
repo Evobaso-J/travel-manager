@@ -1,7 +1,17 @@
 <template>
-  <TravelsForm
-    :initial-data="ref<MaybeTravel>(data?.[0])"
-  />
+  <div>
+    <section>
+      <PageTitle
+        :title="title"
+        show-back-button
+      />
+    </section>
+    <section>
+      <TravelsForm
+        :initial-data="ref<MaybeTravel>(data?.[0])"
+      />
+    </section>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -10,8 +20,9 @@ import { travelsClient } from '~/resources/travels'
 import type { Travel } from '~/resources/travels/types/internal'
 import { useResourceClientFetch } from '~/resources/useResourceClientFetch'
 
+const title = 'Edit Travel'
 useHead({
-  title: 'Edit Travel',
+  title,
 })
 
   type MaybeTravel = Travel | undefined
