@@ -85,9 +85,9 @@ const { data: travelsData } = useResourceClientFetch(travelsClient, {
 
 type TableBooking = Omit<Booking, 'travelId'> & { travel: Travel }
 const tableData = computed(() => {
-  return (bookingsData.value ?? []).map<TableBooking>(booking => ({
+  return (bookingsData.value ?? []).map<TableBooking>(({ travelId, ...booking }) => ({
     ...booking,
-    travel: (travelsData.value ?? []).find(travel => travel.id === booking.travelId)!,
+    travel: (travelsData.value ?? []).find(travel => travel.id === travelId)!,
   }))
 })
 </script>
