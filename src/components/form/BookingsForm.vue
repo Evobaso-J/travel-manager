@@ -5,13 +5,11 @@
     :steps
   >
     <template #[`step.1`]="{ currentStep, step }">
-      <section
-        v-show="currentStep===step.value"
-      >
+      <section>
         <FormRow>
           <AutocompleteInput
             v-model:input-value="formData.travelId"
-            required
+            :required="currentStep === step.value"
             :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
             label="Travel"
             :options="travelSelectOption"
@@ -24,13 +22,11 @@
       </section>
     </template>
     <template #[`step.2`]="{ currentStep, step }">
-      <section
-        v-show="currentStep===step.value"
-      >
+      <section>
         <FormRow>
           <TextInput
             v-model="formData.customer.name"
-            required
+            :required="currentStep === step.value"
             label="Full Name"
             :prepend-icon="{ prefix: 'fas', iconName: 'user' }"
           />
@@ -38,14 +34,15 @@
         <FormRow>
           <TextInput
             v-model="formData.customer.email"
-            required
+            :required="currentStep === step.value"
             email
+            type="email"
             label="Email"
             :prepend-icon="{ prefix: 'fas', iconName: 'envelope' }"
           />
           <TextInput
             v-model="formData.customer.phone"
-            required
+            :required="currentStep === step.value"
             label="Phone"
             :prepend-icon="{ prefix: 'fas', iconName: 'phone' }"
           />
@@ -53,14 +50,14 @@
         <FormRow>
           <NumberInput
             v-model="formData.customer.age"
-            required
+            :required="currentStep === step.value"
             label="Age"
             :prepend-icon="{ prefix: 'fas', iconName: 'birthday-cake' }"
             :min="18"
           />
           <SelectInput
             v-model="formData.customer.gender"
-            required
+            :required="currentStep === step.value"
             label="Gender"
             :options="genderOptions"
             :prepend-icon="{ prefix: 'fas', iconName: 'venus-mars' }"
@@ -69,13 +66,11 @@
       </section>
     </template>
     <template #[`step.3`]="{ currentStep, step }">
-      <section
-        v-show="currentStep===step.value"
-      >
+      <section>
         <FormRow>
           <SelectInput
             v-model="formData.paymentType"
-            required
+            :required="currentStep === step.value"
             label="Payment Type"
             :options="paymentOptions"
             :prepend-icon="{ prefix: 'fas', iconName: 'credit-card' }"
@@ -121,7 +116,7 @@ const formData = ref<Booking>({
   id: undefined,
   customer: {
     id: undefined,
-    age: 0,
+    age: 18,
     email: '',
     gender: 'notSpecified',
     name: '',

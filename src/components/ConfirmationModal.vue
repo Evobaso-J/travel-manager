@@ -5,9 +5,10 @@
     @click="$emit('cancel')"
   />
   <BaseCard
-    class="w-[500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+    class="w-[500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 transition-transform duration-300"
     :class="{
-      hidden: !isOpen,
+      'scale-0': !isOpen,
+      'scale-100': isOpen,
     }"
   >
     <h2 class="text-xl font-semibold">
