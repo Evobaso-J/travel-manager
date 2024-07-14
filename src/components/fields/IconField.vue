@@ -16,7 +16,7 @@ import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fon
 import type { HtmlHTMLAttributes } from 'vue'
 
 defineComponent({ name: 'IconField' })
-type IconFieldProps = {
+export type IconFieldProps = {
   icon: FontAwesomeIconProps['icon']
   text: string
   iconClass?: HtmlHTMLAttributes['class']

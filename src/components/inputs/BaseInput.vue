@@ -13,9 +13,11 @@
       @input="emit('input', $event)"
     >
     <button
-      v-if="clearable && model"
       type="button"
-      class="rounded-full ml-2 hover:bg-gray-200"
+      class="rounded-full ml-2 hover:bg-gray-200 transition-opacity"
+      :class="{
+        'opacity-0': !model || !clearable,
+      }"
     >
       <FontAwesomeIcon
         :icon="{ prefix: 'fas', iconName: 'close' }"

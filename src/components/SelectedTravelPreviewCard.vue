@@ -1,15 +1,18 @@
 <template>
-  <section
-    class="rounded-md border border-gray-300 p-4"
+  <fieldset
+    class="rounded-md border border-secondary-600 p-4 transition-opacity"
+    :class="{
+      'opacity-50': !travel,
+    }"
   >
-    <FormRow>
-      <TextField
-        :value="travel?.name ?? placeholderString"
-        label="Name"
-        required
-        :prepend-icon="{ prefix: 'fas', iconName: 'earth' }"
+    <legend class="text-lg font-medium">
+      <IconField
+        class="px-2 text-secondary-700"
+        icon-class="text-secondary-700"
+        :icon="{ prefix: 'fas', iconName: 'info-circle' }"
+        text="Travel Information"
       />
-    </FormRow>
+    </legend>
     <FormRow>
       <TextField
         :value="travel?.departureDate ? formatDateToStandard(travel.departureDate) : placeholderString"
@@ -42,20 +45,23 @@
         :value="travel?.tourDescription ?? placeholderString"
         label="Tour Description"
         :prepend-icon="{ prefix: 'fas', iconName: 'info-circle' }"
+        class="col-span-2"
       />
       <TextField
         :lines="6"
         :value="travel?.pictureSource ?? placeholderString"
         label="Cover Image URL"
+        class="col-span-2"
         :prepend-icon="{ prefix: 'fas', iconName: 'image' }"
       />
     </FormRow>
-  </section>
+  </fieldset>
 </template>
 
 <script setup lang='ts'>
 import TextField from './fields/TextField.vue'
 import StarsRatingField from './fields/StarsRatingField.vue'
+import IconField from './fields/IconField.vue'
 import type { Travel } from '~/resources/travels/types/internal'
 import { formatDateToStandard, formatPrice } from '~/utils'
 

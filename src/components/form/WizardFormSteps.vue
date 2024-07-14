@@ -1,5 +1,5 @@
 <template>
-  <ol class="mb-8 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+  <ol class="mb-8 flex items-center w-full text-sm font-medium text-center text-gray-500 sm:text-base">
     <li
       v-for="(step, index) in steps"
       :key="step.value"
@@ -15,7 +15,7 @@
         class="flex items-center"
         :class="{
           'after:text-primary-600': activeStep > step.value,
-          'after:content-[\'•\'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500': steps.length - 1 !== index,
+          'after:content-[\'•\'] sm:after:hidden after:mx-2 after:text-gray-200': steps.length - 1 !== index,
         }"
       >
         <FontAwesomeIcon
