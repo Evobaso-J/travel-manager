@@ -1,6 +1,6 @@
 <template>
   <NuxtImg
-    :class="`inline-block h-10 w-10 rounded-full ring-2 ring-primary-500 cursor-pointer ${twClass}`"
+    :class="`inline-block h-10 w-10 rounded-full ring-2 ring-primary-500 cursor-pointer`"
     :src="`${src}${unsplashResizingSuffix}`"
     :alt
     fit="cover"
@@ -23,13 +23,11 @@
 </template>
 
 <script setup lang='ts'>
-import type { WithTailwindClass } from '~/types'
-
 defineComponent({ name: 'AvatarField' })
 type AvatarFieldProps = {
   alt: string
   src: string
-} & WithTailwindClass
+}
 defineProps<AvatarFieldProps>()
 
 const showLargeImage = ref(false)

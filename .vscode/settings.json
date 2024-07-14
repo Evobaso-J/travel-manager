@@ -9,7 +9,6 @@
     "className",
     "ngClass",
     "class:list",
-    "twClass",
     "tw-class",
   ],
   "tailwind-fold.autoFold": true,

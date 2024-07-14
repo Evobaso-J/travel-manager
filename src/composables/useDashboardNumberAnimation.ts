@@ -1,3 +1,11 @@
+/**
+ * Creates a reactive value that animates from 0 to a target number over a specified duration. This composable is useful for
+ * dashboard number animations where numbers count up to their final value when the component mounts.
+ *
+ * @param {number} targetValue - The final value the animation should count up to.
+ * @returns {Ref<number>} A Vue ref object containing the current value of the animation. This value starts at 0 and
+ * increments in steps until it reaches or surpasses the target value.
+ */
 export const useDashboardNumberAnimation = (targetValue: number) => {
   const currentValue = ref(0)
   const maxAnimationDuration = 1000 // Total animation duration in milliseconds

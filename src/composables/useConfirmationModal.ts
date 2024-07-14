@@ -13,6 +13,19 @@ const isModalOpen = ref<boolean>(false)
 // eslint-disable-next-line @typescript-eslint/ban-types
 const resolveRef = ref<Function | undefined>(undefined)
 
+/**
+ * Provides functionality to manage a confirmation modal, including opening the modal,
+ * and handling confirm or cancel actions with promise-based resolution.
+ *
+ * The `useConfirmationModal` composable exposes a method to request confirmation (`askConfirmation`)
+ * and handlers to manage the confirmation modal's state (`confirmationModalHandlers`).
+ *
+ * @returns An object containing:
+ * - `askConfirmation`: A function that opens the confirmation modal and returns a Promise that resolves to a boolean indicating the user's choice.
+ * - `confirmationModalHandlers`: An object with properties and methods to control the modal's visibility and to handle confirm/cancel actions.
+ *
+ * NOTE: This composable is intended to be used with the `ConfirmationModal` component.
+ */
 export const useConfirmationModal = (): {
   askConfirmation: () => Promise<boolean>
   confirmationModalHandlers: ConfirmationModalHandlers

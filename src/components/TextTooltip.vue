@@ -24,13 +24,11 @@
 </template>
 
 <script setup lang='ts'>
-import type { WithTailwindClass } from '~/types'
-
 defineComponent({ name: 'TextTooltip' })
 type TextTooltipProps = {
   text: string
   position: 'top' | 'bottom' | 'left' | 'right'
-} & WithTailwindClass
+}
 
 withDefaults(defineProps<TextTooltipProps>(), { position: 'top' })
 
