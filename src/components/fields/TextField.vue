@@ -3,6 +3,7 @@
     :label
     :prepend-icon="prependIcon"
     :icon-props="iconProps"
+    class="cursor-not-allowed"
   >
     <span
       :class="{
