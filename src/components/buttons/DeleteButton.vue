@@ -2,6 +2,7 @@
   <button
     :disabled="loading"
     class="rounded-full hover:bg-red-300 px-1 aspect-square"
+    @click.stop="deleteItem"
   >
     <FontAwesomeIcon
       v-if="!loading"
@@ -10,7 +11,6 @@
         iconName: 'trash',
       }"
       class="text-red-500 aspect-square"
-      @click.stop="deleteItem"
     />
     <FontAwesomeIcon
       v-else
@@ -33,8 +33,10 @@ type DeleteButtonProps<I extends WithOptionalId, Res extends WithId, Req extends
 const { notify } = useNotification()
 const props = defineProps <DeleteButtonProps<TInternal, TResponse, TRequest>>()
 
+const { askConfirmation } = useConfirmationModal()
 const loading = ref(false)
 const deleteItem = async () => {
+  if (!(await askConfirmation())) return
   loading.value = true
   try {
     await $fetch(props.client.route, {

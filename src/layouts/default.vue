@@ -6,6 +6,11 @@
     <div class="p-4 sm:ml-64">
       <slot />
     </div>
+    <ConfirmationModal
+      :is-open="isModalOpen"
+      @confirm="confirm"
+      @cancel="cancelConfirmation"
+    />
     <NotificationSnackbar
       v-for="(notification, index) in activeNotifications"
       :key="index"
@@ -15,6 +20,7 @@
 </template>
 
 <script setup lang='ts'>
+import ConfirmationModal from '~/components/ConfirmationModal.vue'
 import type { NavigationLinkProps } from '~/components/navigation/NavigationLink.vue'
 import NavigationSidebar from '~/components/navigation/NavigationSidebar.vue'
 import NotificationSnackbar from '~/components/NotificationSnackbar.vue'
@@ -22,6 +28,11 @@ import NotificationSnackbar from '~/components/NotificationSnackbar.vue'
 defineComponent({ name: 'DefaultLayout' })
 
 const { activeNotifications } = useNotification()
+const { confirmationModalHandlers: {
+  cancel: cancelConfirmation,
+  confirm,
+  isModalOpen,
+} } = useConfirmationModal()
 
 const navItems = [
   {
